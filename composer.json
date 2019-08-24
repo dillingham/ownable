@@ -1,0 +1,22 @@
+{
+    "name": "dillingham/ownable",
+    "description": "ownable functionality",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Brian Dillingham",
+            "email": "brian@dillingham.dev"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^8.3",
+        "orchestra/testbench": "^3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dillingham\\Ownable\\": "src/"
+        }
+    }
+}
