@@ -9,7 +9,9 @@ trait Ownable
 {
     public static function bootOwnable()
     {
-        Gate::policy(self::class, OwnerPolicy::class);
+        if (!Gate::getPolicyFor(self::class)) {
+            Gate::policy(self::class, OwnerPolicy::class);
+        }
 
         self::creating(function ($model) {
             if (is_null($model->user_id)) {
