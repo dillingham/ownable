@@ -8,12 +8,12 @@ class OwnerPolicy
 {
     use HandlesAuthorization;
 
-    public function update(User $user, $model)
+    public function update($user, $model)
     {
         return $user->id === $model->user_id;
     }
 
-    public function delete(User $user, $model)
+    public function delete($user, $model)
     {
         return $user->id === $model->user_id;
     }
