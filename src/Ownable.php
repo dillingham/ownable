@@ -16,7 +16,6 @@ trait Ownable
         self::creating(function ($model) {
             if (is_null($model->user_id)) {
                 $model->user_id = optional(auth()->user())->id;
-                // session('active_account_id')
             }
         });
     }
@@ -26,5 +25,10 @@ trait Ownable
         return $this->belongsTo(
             config('auth.providers.users.model')
         );
+    }
+
+    public function scopeOwned($query)
+    {
+        return $query->where('user_id', optional(auth()->user())->id);
     }
 }
